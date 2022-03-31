@@ -1,28 +1,6 @@
-# Tacotron 2 MMI (without wavenet)
-# code for Maximizing Mutual Information for Tacotron.
-An updated version of the method purposed in the avoue paper.
- - gradient adaptor factor for the CTC loss instead of an increasing weight.
- - an extremely simple CTC recognizer (1 linear layer with ReLU activation) is used to force the Tacotron decoder 
- to learn a representation with plentiful linguistic information. The CTC recognizer is able to classify 
- raw acoustic features if it employs a powerful structure.
+# Tacotron 2 for Portuguese TTS
+This is an adaptation of the tacotron2 original repository to train portuguese TTS models.
 
-New options in hparams:
- - use_mmi (use mmi training objective or not)
- - use_gaf (use gradient adaptive factor or not, to keep the max norm of gradients 
- from the taco_loss and mi_loss approximately equal)
- - max_gaf (maximum value of gradient adaptive factor)
- - drop_frame_rate (drop teacher-frocing input frames to a certain rate)
- 
-This code can pick up alignment at much earlier steps than the original version.
-
-Nvidia-Tacotron2 alignment refinement
-
-![NVIDIA-Tacotron2](alignment_fig/nv.gif)
-
-This code
-
-![This code](alignment_fig/df_mi.gif)
- 
  
 ---------------------------
                     
@@ -64,7 +42,7 @@ Visit our [website] for audio samples using our published [Tacotron 2] and
 Training using a pre-trained model can lead to faster convergence  
 By default, the dataset dependent text embedding layers are [ignored]
 
-1. Download our published [Tacotron 2] model
+1. Download our published [Tacotron 2] model. 
 2. `python train.py --output_directory=outdir --log_directory=logdir -c tacotron2_statedict.pt --warm_start`
 
 ## Multi-GPU (distributed) and Automatic Mixed Precision Training
@@ -86,6 +64,8 @@ Generative Network for Speech Synthesis
 
 [nv-wavenet](https://github.com/NVIDIA/nv-wavenet/) Faster than real time
 WaveNet.
+
+[Tacotron2-MMI]()
 
 ## Acknowledgements
 This implementation uses code from the following repos: [Keith
