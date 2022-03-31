@@ -1,33 +1,19 @@
 # Tacotron 2 for Portuguese TTS
-This is an adaptation of the tacotron2 original repository to train portuguese TTS models.
-
+This is an adaptation of NVIDIA's tacotron2 repository to train and experiment with portuguese TTS models, following the work ["A Corpus of Neutral Speech in Brazilian Portuguese"](https://www.smt.ufrj.br/gpa/propor2022). More info about the data and a notebook to directly generate speech from portuguese pretrained models can be found at [kaggle](https://www.kaggle.com/datasets/mediatechlab/gneutralspeech). To interact and contribute with with our data, models and code, please follow the instructions below.
  
 ---------------------------
                     
-
-PyTorch implementation of [Natural TTS Synthesis By Conditioning
-Wavenet On Mel Spectrogram Predictions](https://arxiv.org/pdf/1712.05884.pdf). 
-
-This implementation includes **distributed** and **automatic mixed precision** support
-and uses the [LJSpeech dataset](https://keithito.com/LJ-Speech-Dataset/).
-
-Distributed and Automatic Mixed Precision support relies on NVIDIA's [Apex] and [AMP].
-
-Visit our [website] for audio samples using our published [Tacotron 2] and
-[WaveGlow] models.
-
-![Alignment, Predicted Mel Spectrogram, Target Mel Spectrogram](tensorboard.png)
 
 
 ## Pre-requisites
 1. NVIDIA GPU + CUDA cuDNN
 
-## Setup
-1. Download and extract the [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
-2. Clone this repo: `git clone https://github.com/NVIDIA/tacotron2.git`
+## Setup (Portuguese)
+1. Download and extract the [G Neutral Speech Male Dataset](https://www.kaggle.com/datasets/mediatechlab/gneutralspeech)
+2. Clone this repo: `git clone https://github.com/mediatechlab/tacotron2.git`
 3. CD into this repo: `cd tacotron2`
 4. Initialize submodule: `git submodule init; git submodule update`
-5. Update .wav paths: `sed -i -- 's,DUMMY,ljs_dataset_folder/wavs,g' filelists/*.txt`
+5. Update .wav paths: `sed -i -- 's,DUMMY,gneutral_speech_dataset_folder/wavs,g' filelists/*.txt`
     - Alternatively, set `load_mel_from_disk=True` in `hparams.py` and update mel-spectrogram paths 
 6. Install [PyTorch 1.0]
 7. Install [Apex]
@@ -42,15 +28,14 @@ Visit our [website] for audio samples using our published [Tacotron 2] and
 Training using a pre-trained model can lead to faster convergence  
 By default, the dataset dependent text embedding layers are [ignored]
 
-1. Download our published [Tacotron 2] model. 
+1. Download our [Tacotron 2 Portuguese Model](https://drive.google.com/file/d/1HWlWM9lObk10NogCajYx2ILqbMWdBXo7/view?usp=sharing). 
 2. `python train.py --output_directory=outdir --log_directory=logdir -c tacotron2_statedict.pt --warm_start`
 
 ## Multi-GPU (distributed) and Automatic Mixed Precision Training
 1. `python -m multiproc train.py --output_directory=outdir --log_directory=logdir --hparams=distributed_run=True,fp16_run=True`
 
 ## Inference demo
-1. Download our published [Tacotron 2] model
-2. Download our published [WaveGlow] model
+1. Download our published [Tacotron 2 and Waveglow Portuguese Models](https://drive.google.com/drive/folders/1OgP5foSPDsQBw1I64ZriS6vt3Pf9wj3L)
 3. `jupyter notebook --ip=127.0.0.1 --port=31337`
 4. Load inference.ipynb 
 
@@ -65,7 +50,7 @@ Generative Network for Speech Synthesis
 [nv-wavenet](https://github.com/NVIDIA/nv-wavenet/) Faster than real time
 WaveNet.
 
-[Tacotron2-MMI]()
+[Tacotron2-MMI](https://github.com/bfs18/tacotron2)
 
 ## Acknowledgements
 This implementation uses code from the following repos: [Keith
