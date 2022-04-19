@@ -38,12 +38,12 @@ By default, the dataset dependent text embedding layers are [ignored]
 1. Download our published [Tacotron 2 and Waveglow Portuguese Models](https://drive.google.com/drive/folders/1OgP5foSPDsQBw1I64ZriS6vt3Pf9wj3L)
 3. `jupyter notebook --ip=127.0.0.1 --port=31337`
 4. Load inference.ipynb 
+N.b.  When performing Mel-Spectrogram to Audio synthesis, make sure Tacotron 2
+and the Mel decoder were trained on the same mel-spectrogram representation. 
 
 ### *\*NEW\** Google Colab
 Now you can try out tts in portuguese with studio quality in google colab with this [notebook](https://colab.research.google.com/drive/1Kz5ktn355ekeuMpDSXHjpx0pM_5dDwsn) (subject to our [terms of use](https://www.smt.ufrj.br/~gpa/terms_of_use.pdf)).
 
-N.b.  When performing Mel-Spectrogram to Audio synthesis, make sure Tacotron 2
-and the Mel decoder were trained on the same mel-spectrogram representation. 
 
 
 ## Related repos
