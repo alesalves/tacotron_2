@@ -1,3 +1,4 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Kz5ktn355ekeuMpDSXHjpx0pM_5dDwsn)
 # Tacotron 2 for Portuguese TTS
 This is an adaptation of NVIDIA's tacotron2 repository to train and experiment with portuguese TTS models, following the work ["A Corpus of Neutral Voice Speech in Brazilian Portuguese"](https://www.smt.ufrj.br/gpa/propor2022). More info about the data and a notebook to directly generate speech from portuguese pretrained models can be found at [kaggle](https://www.kaggle.com/datasets/mediatechlab/gneutralspeech). To interact and contribute with with our data, models and code, please follow the instructions below.
  
